@@ -14,18 +14,15 @@ class CreateApplicantAnswersTable extends Migration
     public function up()
     {
         Schema::create('applicant_answers', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('question_id')->index()->nullable();
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('question_id')->nullable()->index();
             $table->unsignedBigInteger('applicant_id')->index();
-            $table->unsignedBigInteger('answer_id')->index()->nullable();
+            $table->unsignedBigInteger('answer_id')->nullable()->index();
             $table->text('applicant_answer')->nullable();
-            $table->unsignedInteger('score')->nullable();
+            $table->unsignedInteger('score')->nullable()->default('0');
+            $table->tinyInteger('checked')->default(0);
             $table->timestamps();
-
-            $table->foreign('question_id')->references('id')->on('questions')->onDelete('set null');
-            $table->foreign('applicant_id')->references('id')->on('applicants')->onDelete('cascade');
-            $table->foreign('answer_id')->references('id')->on('answers')->onDelete('set null');
-
+            $table->unsignedBigInteger('score_id')->nullable()->index();
         });
     }
 
