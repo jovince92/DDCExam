@@ -117,7 +117,7 @@
                 this.applicantsLoading=true;
                 this.applicants=[];
                 axiosRetry(axios, { retries: 3 });
-                axios.get('/admin/api/applicant/all/')
+                axios.get(route('admin.applicants_all'))
                 .then(response => {                    
                     this.applicants= response.data
                     //console.log(response.data);
@@ -136,7 +136,7 @@
                 this.applicantsLoading=true;
                 this.applicants=[];
                 axiosRetry(axios, { retries: 3 });
-                axios.post('/admin/api/applicant/filter',{
+                axios.post(route('admin.applicants_filter'),{
                     name: this.name,
                     limit:this.limit
                 })
@@ -156,7 +156,7 @@
             },
             getLocations(){
                 axiosRetry(axios, { retries: 3 });
-                axios.get('/api/locations')
+                axios.get(route('locations'))
                 .then(response => {
                     this.locations=response.data;
                     this.gettingLocations=false;

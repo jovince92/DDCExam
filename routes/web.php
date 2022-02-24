@@ -38,13 +38,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
 
 
 Route::get('/dashboard', function () {
-    return redirect('/');
+    redirect()->route('dashboard');
 });
 
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
-    return Inertia::render('MainExam');
-})->name('dashboard');
+
 
 
 Route::group(['middleware'=>'auth'],function(){
@@ -54,7 +52,7 @@ Route::group(['middleware'=>'auth'],function(){
 
     Route::group(['middleware'=> 'role:applicant','prefix'=>'applicant','as'=>'applicant.' ],function(){
         Route::get('/applicant',function(){
-            return redirect('/');
+            redirect()->route('dashboard');
         });
     });
     Route::group(['middleware'=> 'role:admin','prefix'=>'admin','as'=>'admin.' ],function(){
@@ -74,48 +72,48 @@ Route::group(['middleware'=>'auth'],function(){
 
         
 
-        Route::post('/api/exam/save',[ExamController::class,'add_exam']);
-        Route::post('/api/exam/update',[ExamController::class,'update_exam']);
-        Route::post('/api/exam/delete',[ExamController::class,'delete_exam']);
-        Route::get('/api/exam/all',[ExamController::class,'index']);
-        Route::post('/api/exam/filter',[ExamController::class,'filter']);
+        Route::post('/api/exam/save',[ExamController::class,'add_exam'])->name('add_exam');
+        Route::post('/api/exam/update',[ExamController::class,'update_exam'])->name('update_exam');
+        Route::post('/api/exam/delete',[ExamController::class,'delete_exam'])->name('delete_exam');
+        Route::get('/api/exam/all',[ExamController::class,'index'])->name('exam');
+        Route::post('/api/exam/filter',[ExamController::class,'filter'])->name('exam_filter');
 
 
-        Route::get('/api/dashboard/index',[DashboardController::class,'index']);
+        Route::get('/api/dashboard/index',[DashboardController::class,'index'])->name('admin_index');
         
 
 
-        Route::get('/api/applicant/all',[AdminController::class,'applicants']);
-        Route::post('/api/applicant/filter',[AdminController::class,'filter_applicants']);
-        Route::post('/api/applicant/update',[AdminController::class,'applicant_update']);
+        Route::get('/api/applicant/all',[AdminController::class,'applicants'])->name('applicants_all');
+        Route::post('/api/applicant/filter',[AdminController::class,'filter_applicants'])->name('applicants_filter');
+        Route::post('/api/applicant/update',[AdminController::class,'applicant_update'])->name('applicants_update');
 
 
 
-        Route::get('/api/score/all',[ResultsController::class,'scores']);
+        Route::get('/api/score/all',[ResultsController::class,'scores'])->name('scores');
 
-        Route::post('/api/score/filter',[ResultsController::class,'scores_filter']);
+        Route::post('/api/score/filter',[ResultsController::class,'scores_filter'])->name('scores_filter');
 
-        Route::post('/api/score/statusupdate',[ResultsController::class,'update_status']);
-        Route::post('/api/score/scoreupdate',[ResultsController::class,'update_score']);
+        Route::post('/api/score/statusupdate',[ResultsController::class,'update_status'])->name('scores_status');
+        Route::post('/api/score/scoreupdate',[ResultsController::class,'update_score'])->name('scores_update');
 
 
-        Route::post('/api/applicant_answer/scoreupdate',[ResultsController::class,'update_question_score']);
+        Route::post('/api/applicant_answer/scoreupdate',[ResultsController::class,'update_question_score'])->name('scores_update_2');
 
     });
 
 
-    Route::get('/api/vaccancies',[ExamController::class,'getVaccancies']);
+    Route::get('/api/vaccancies',[ExamController::class,'getVaccancies'])->name('vaccancies');
 
 
 
 
     /*******GET AVAILABLE EXAMS FOR APPLICANT */
-    Route::post('/api/availableexams',[ApplicantController::class,'available_exams']);
-    Route::post('/api/applicant/exam/save',[ApplicantController::class,'create_exam']);
-    Route::get('/api/applicant/exam/check',[ApplicantController::class,'check']);
+    Route::post('/api/availableexams',[ApplicantController::class,'available_exams'])->name('available_exams');
+    Route::post('/api/applicant/exam/save',[ApplicantController::class,'create_exam'])->name('applicant_exams_save');
+    Route::get('/api/applicant/exam/check',[ApplicantController::class,'check'])->name('exams_check');
 
     /***********GET USER LEVEL**** */
-    Route::get('/api/getuserlevel',[ApplicantController::class,'user_level']);
+    Route::get('/api/getuserlevel',[ApplicantController::class,'user_level'])->name('level_check');
 
     
     //Route::get('/api/vaccancies/refresh',[CategoryController::class,'calibrate']);
@@ -123,10 +121,10 @@ Route::group(['middleware'=>'auth'],function(){
 
 });
 
-Route::post('/api/applicant/create',[ApplicantController::class,'create']);
-Route::post('/api/applicant/check',[ApplicantController::class,'email_check']);
+Route::post('/api/applicant/create',[ApplicantController::class,'create'])->name('application');
+Route::post('/api/applicant/check',[ApplicantController::class,'email_check'])->name('email_check');
 
-    Route::post('/api/cities',[LocationController::class,'cities']);
-    Route::post('/api/provinces',[LocationController::class,'provinces']);
-    Route::get('/api/regions',[LocationController::class,'regions']);
-    Route::get('/api/locations',[LocationController::class,'locations']);
+Route::post('/api/cities',[LocationController::class,'cities'])->name('cities');
+Route::post('/api/provinces',[LocationController::class,'provinces'])->name('provinces');
+Route::get('/api/regions',[LocationController::class,'regions'])->name('regions');
+Route::get('/api/locations',[LocationController::class,'locations'])->name('locations');

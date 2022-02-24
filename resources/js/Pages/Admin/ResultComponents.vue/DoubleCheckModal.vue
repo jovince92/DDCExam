@@ -153,7 +153,7 @@
                 
                 this.updating=true;
                 axiosRetry(axios, { retries: 3 });
-                axios.post('/admin/api/score/statusupdate',{
+                axios.post(route('admin.scores_status'),{
                     score_id:this.result.id,
                     status: this.remarks
                 })

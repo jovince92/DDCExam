@@ -385,7 +385,7 @@ export default defineComponent({
     registerApplicant(){
       this.processing=true;
       axiosRetry(axios, { retries: 3 });
-      axios.post('/api/applicant/create',{
+      axios.post(route('application'),{
         fname: this.form.nameFirst,
         lname: this.form.nameLast,
         mname: this.form.nameMiddle,
@@ -419,7 +419,7 @@ export default defineComponent({
     },
     getRegions(){
       axiosRetry(axios, { retries: 3 });
-      axios.get('/api/regions')
+      axios.get(route('regions'))
         .then(response => {
           this.regions=response.data;
           this.region=13;
@@ -437,7 +437,7 @@ export default defineComponent({
       axiosRetry(axios, { retries: 3 });
       this.loadingCities=true;
       this.loadingProvs=true;
-      axios.post('/api/provinces',{
+      axios.post(route('provinces'),{
           region_id:id
         })
         .then(response => {
@@ -457,7 +457,7 @@ export default defineComponent({
     getCities(id){
       axiosRetry(axios, { retries: 3 });
       this.loadingCities=true;
-      axios.post('/api/cities',{
+      axios.post(route('cities'),{
           province_id:id
         })
         .then(response => {
@@ -579,7 +579,7 @@ export default defineComponent({
       this.emailExist= true;
       this.emailMsg='';
       axiosRetry(axios, { retries: 3 });
-      await axios.post('/api/applicant/check',{
+      await axios.post(route('email_check'),{
         email: this.form.email
       })
       .then(response => {

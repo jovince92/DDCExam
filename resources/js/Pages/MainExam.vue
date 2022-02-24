@@ -606,7 +606,7 @@
                     }
                 );
                 axiosRetry(axios, { retries: 3 });
-                axios.post('/api/applicant/exam/save',{
+                axios.post(route('applicant_exams_save'),{
                     exam_id:this.exam.id,
                     passing_score: this.exam.passing_score,
                     job_id: this.job_id,
@@ -645,8 +645,9 @@
             
         },
         created(){
+            
             axiosRetry(axios, { retries: 3 });
-            axios.get('/api/applicant/exam/check')
+            axios.get(route('exams_check'))
                 .then(response => {
                     
                     this.hasTakenExam=(response.data>0)?true:false;

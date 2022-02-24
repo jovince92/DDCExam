@@ -182,8 +182,9 @@ export default {
     }
   },
   created(){
+    
     axiosRetry(axios, { retries: 3 });
-    axios.get('/api/getuserlevel')
+    axios.get(route('level_check'))
     .then(response => {
         this.userLevel=response.data
     })

@@ -610,7 +610,7 @@ export default defineComponent({
 
         
         axiosRetry(axios, { retries: 3 });
-        axios.post('/admin/api/exam/save',{
+        axios.post(route('admin.add_exam'),{
             name: this.examName,
             score: this.examScore(),
             passing_score: this.examPassingScore,

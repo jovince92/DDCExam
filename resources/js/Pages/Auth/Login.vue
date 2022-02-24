@@ -4,7 +4,7 @@
   <div class="wrapper">
     <div class="logo"> <img :src="'/storage/logo/logo.png'" alt=""> </div>
     <div class="text-center mt-4 name"> DDC Group </div>
-    <div class="text-center"> HR Employment Screening </div>
+    <div class="text-center"> HR Employment Screening Log In </div>
     <jet-validation-errors class="mb-4" />
 
     <div v-if="status" class="text-danger">
@@ -69,6 +69,9 @@ export default defineComponent({
         remember: false
       })
     }
+  },
+  created(){
+    
   },
 
   methods: {

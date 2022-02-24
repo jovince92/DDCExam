@@ -101,7 +101,7 @@ export default defineComponent({
             this.loading=true;
             axiosRetry(axios, { retries: 3 });
 
-            axios.get('/admin/api/dashboard/index')
+            axios.get(route('admin.admin_index'))
             .then(response => {                    
                 //console.log(response.data);
                 

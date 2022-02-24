@@ -156,7 +156,7 @@
                 this.examsLoading=true;
                 this.exams=[];
                 axiosRetry(axios, { retries: 3 });
-                axios.get('/admin/api/exam/all/')
+                axios.get(route('admin.exam'))
                 .then(response => {                    
                     this.exams= response.data
                     //console.log(this.exams);
@@ -178,7 +178,7 @@
                     }
                 );
                 axiosRetry(axios, { retries: 3 });
-                axios.post('/admin/api/exam/delete',{
+                axios.post(route('admin.delete_exam'),{
                     id:params.id
                 })
                 .then(response => {                    
@@ -202,7 +202,7 @@
                 this.examsLoading=true;
                 this.exams= [];
                 axiosRetry(axios, { retries: 3 });
-                axios.post('/admin/api/exam/filter',{
+                axios.post(route('admin.exam_filter'),{
                     name:this.name,
                     limit: this.limit
                 })
@@ -225,7 +225,7 @@
         created(){
             this.getExams();
             axiosRetry(axios, { retries: 3 });
-            axios.get('/api/vaccancies/')
+            axios.get(route('vaccancies'))
             .then(response => {
                 //console.log(response.data[1]);
                 //this.vacancies = {...response.data[1]};

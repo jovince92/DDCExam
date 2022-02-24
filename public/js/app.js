@@ -23743,7 +23743,7 @@ __webpack_require__.r(__webpack_exports__);
       (0,axios_retry__WEBPACK_IMPORTED_MODULE_3__["default"])(axios, {
         retries: 3
       });
-      axios.post('/api/provinces', {
+      axios.post(route('provinces'), {
         region_id: id.target.value
       }).then(function (response) {
         _this.provinces = response.data;
@@ -23752,7 +23752,7 @@ __webpack_require__.r(__webpack_exports__);
         (0,axios_retry__WEBPACK_IMPORTED_MODULE_3__["default"])(axios, {
           retries: 3
         });
-        axios.post('/api/cities', {
+        axios.post(route('cities'), {
           province_id: response.data[0].provCode
         }).then(function (response_) {
           _this.cities = response_.data;
@@ -23785,7 +23785,7 @@ __webpack_require__.r(__webpack_exports__);
       (0,axios_retry__WEBPACK_IMPORTED_MODULE_3__["default"])(axios, {
         retries: 3
       });
-      axios.post('/api/cities', {
+      axios.post(route('cities'), {
         province_id: id.target.value
       }).then(function (response) {
         _this2.cities = response.data;
@@ -23809,7 +23809,7 @@ __webpack_require__.r(__webpack_exports__);
       (0,axios_retry__WEBPACK_IMPORTED_MODULE_3__["default"])(axios, {
         retries: 3
       });
-      axios.post('/admin/api/applicant/update', {
+      axios.post(route('admin.applicants_update'), {
         applicant_id: this.applicant.applicant.id,
         last_name: this.lname,
         first_name: this.fname,
@@ -23945,7 +23945,7 @@ __webpack_require__.r(__webpack_exports__);
       (0,axios_retry__WEBPACK_IMPORTED_MODULE_6__["default"])(axios, {
         retries: 3
       });
-      axios.get('/admin/api/applicant/all/').then(function (response) {
+      axios.get(route('admin.applicants_all')).then(function (response) {
         _this.applicants = response.data; //console.log(response.data);
 
         _this.applicantsLoading = false;
@@ -23965,7 +23965,7 @@ __webpack_require__.r(__webpack_exports__);
       (0,axios_retry__WEBPACK_IMPORTED_MODULE_6__["default"])(axios, {
         retries: 3
       });
-      axios.post('/admin/api/applicant/filter', {
+      axios.post(route('admin.applicants_filter'), {
         name: this.name,
         limit: this.limit
       }).then(function (response) {
@@ -23986,7 +23986,7 @@ __webpack_require__.r(__webpack_exports__);
       (0,axios_retry__WEBPACK_IMPORTED_MODULE_6__["default"])(axios, {
         retries: 3
       });
-      axios.get('/api/locations').then(function (response) {
+      axios.get(route('locations')).then(function (response) {
         _this3.locations = response.data;
         _this3.gettingLocations = false; //console.log(response.data);
       })["catch"](function (error) {
@@ -24343,7 +24343,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       (0,axios_retry__WEBPACK_IMPORTED_MODULE_4__["default"])(axios, {
         retries: 3
       });
-      axios.post('/admin/api/exam/save', {
+      axios.post(route('admin.add_exam'), {
         name: this.examName,
         score: this.examScore(),
         passing_score: this.examPassingScore,
@@ -24819,7 +24819,7 @@ __webpack_require__.r(__webpack_exports__);
       (0,axios_retry__WEBPACK_IMPORTED_MODULE_5__["default"])(axios, {
         retries: 3
       });
-      axios.post('/admin/api/exam/update', {
+      axios.post(route('admin.update_exam'), {
         exam_id: this.currentExam.id,
         name: this.examName,
         score: this.examScore(),
@@ -25262,7 +25262,7 @@ __webpack_require__.r(__webpack_exports__);
       (0,axios_retry__WEBPACK_IMPORTED_MODULE_7__["default"])(axios, {
         retries: 3
       });
-      axios.get('/admin/api/exam/all/').then(function (response) {
+      axios.get(route('admin.exam')).then(function (response) {
         _this.exams = response.data; //console.log(this.exams);
 
         _this.examsLoading = false;
@@ -25285,7 +25285,7 @@ __webpack_require__.r(__webpack_exports__);
       (0,axios_retry__WEBPACK_IMPORTED_MODULE_7__["default"])(axios, {
         retries: 3
       });
-      axios.post('/admin/api/exam/delete', {
+      axios.post(route('admin.delete_exam'), {
         id: params.id
       }).then(function (response) {
         //this.exams= response.data
@@ -25311,7 +25311,7 @@ __webpack_require__.r(__webpack_exports__);
       (0,axios_retry__WEBPACK_IMPORTED_MODULE_7__["default"])(axios, {
         retries: 3
       });
-      axios.post('/admin/api/exam/filter', {
+      axios.post(route('admin.exam_filter'), {
         name: this.name,
         limit: this.limit
       }).then(function (response) {
@@ -25333,7 +25333,7 @@ __webpack_require__.r(__webpack_exports__);
     (0,axios_retry__WEBPACK_IMPORTED_MODULE_7__["default"])(axios, {
       retries: 3
     });
-    axios.get('/api/vaccancies/').then(function (response) {
+    axios.get(route('vaccancies')).then(function (response) {
       //console.log(response.data[1]);
       //this.vacancies = {...response.data[1]};
       //console.log(this.vacancies);
@@ -25426,7 +25426,7 @@ __webpack_require__.r(__webpack_exports__);
       (0,axios_retry__WEBPACK_IMPORTED_MODULE_2__["default"])(axios, {
         retries: 3
       });
-      axios.get('/admin/api/dashboard/index').then(function (response) {
+      axios.get(route('admin.admin_index')).then(function (response) {
         //console.log(response.data);
         _this.dashboardData = response.data;
         _this.loading = false;
@@ -25517,7 +25517,7 @@ __webpack_require__.r(__webpack_exports__);
     (0,axios_retry__WEBPACK_IMPORTED_MODULE_7__["default"])(axios, {
       retries: 3
     });
-    axios.get('/api/getuserlevel').then(function (response) {
+    axios.get(route('level_check')).then(function (response) {
       _this.userLevel = response.data;
     })["catch"](function (error) {
       if (error.response.status == '500') {
@@ -25693,7 +25693,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       (0,axios_retry__WEBPACK_IMPORTED_MODULE_2__["default"])(axios, {
         retries: 3
       });
-      axios.post('/admin/api/score/statusupdate', {
+      axios.post(route('admin.scores_status'), {
         score_id: this.result.id,
         status: this.remarks
       }).then(function (response) {
@@ -25871,7 +25871,7 @@ __webpack_require__.r(__webpack_exports__);
       (0,axios_retry__WEBPACK_IMPORTED_MODULE_1__["default"])(axios, {
         retries: 3
       });
-      axios.post('/admin/api/applicant_answer/scoreupdate', {
+      axios.post(route('admin.scores_update_2'), {
         answer_id: qaId,
         score: this.score,
         score_id: this.score_id
@@ -26045,7 +26045,7 @@ __webpack_require__.r(__webpack_exports__);
       (0,axios_retry__WEBPACK_IMPORTED_MODULE_6__["default"])(axios, {
         retries: 3
       });
-      axios.get('/admin/api/score/all').then(function (response) {
+      axios.get(route('admin.scores')).then(function (response) {
         _this.results = response.data;
         _this.resultsLoading = false;
       })["catch"](function (error) {
@@ -26064,7 +26064,7 @@ __webpack_require__.r(__webpack_exports__);
       (0,axios_retry__WEBPACK_IMPORTED_MODULE_6__["default"])(axios, {
         retries: 3
       });
-      axios.post('/admin/api/score/filter', {
+      axios.post(route('admin.scores_filter'), {
         passed: this.passed,
         failed: this.failed,
         needs_check: this.needsCheck,
@@ -26090,7 +26090,7 @@ __webpack_require__.r(__webpack_exports__);
       (0,axios_retry__WEBPACK_IMPORTED_MODULE_6__["default"])(axios, {
         retries: 3
       });
-      axios.post('/admin/api/score/statusupdate', {
+      axios.post(route('admin.scores_status'), {
         score_id: params.score_id,
         status: params.status
       }).then(function (response) {
@@ -26112,7 +26112,7 @@ __webpack_require__.r(__webpack_exports__);
       (0,axios_retry__WEBPACK_IMPORTED_MODULE_6__["default"])(axios, {
         retries: 3
       });
-      axios.post('/admin/api/score/scoreupdate', {
+      axios.post(route('admin.scores_update'), {
         score_id: params.score_id,
         score: params.score
       }).then(function (response) {
@@ -26330,6 +26330,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       })
     };
   },
+  created: function created() {},
   methods: {
     submit: function submit() {
       var _this = this;
@@ -26478,7 +26479,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       (0,axios_retry__WEBPACK_IMPORTED_MODULE_10__["default"])(axios, {
         retries: 3
       });
-      axios.post('/api/applicant/create', {
+      axios.post(route('application'), {
         fname: this.form.nameFirst,
         lname: this.form.nameLast,
         mname: this.form.nameMiddle,
@@ -26514,7 +26515,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       (0,axios_retry__WEBPACK_IMPORTED_MODULE_10__["default"])(axios, {
         retries: 3
       });
-      axios.get('/api/regions').then(function (response) {
+      axios.get(route('regions')).then(function (response) {
         _this4.regions = response.data;
         _this4.region = 13;
         _this4.pBar = _this4.pBar + 25;
@@ -26534,7 +26535,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       });
       this.loadingCities = true;
       this.loadingProvs = true;
-      axios.post('/api/provinces', {
+      axios.post(route('provinces'), {
         region_id: id
       }).then(function (response) {
         _this5.provinces = response.data;
@@ -26556,7 +26557,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         retries: 3
       });
       this.loadingCities = true;
-      axios.post('/api/cities', {
+      axios.post(route('cities'), {
         province_id: id
       }).then(function (response) {
         _this6.cities = response.data;
@@ -26677,7 +26678,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   retries: 3
                 });
                 _context.next = 5;
-                return axios.post('/api/applicant/check', {
+                return axios.post(route('email_check'), {
                   email: _this7.form.email
                 }).then(function (response) {
                   _this7.emailExist = response.data == 1 ? true : false;
@@ -27343,7 +27344,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       (0,axios_retry__WEBPACK_IMPORTED_MODULE_5__["default"])(axios, {
         retries: 3
       });
-      axios.post('/api/applicant/exam/save', {
+      axios.post(route('applicant_exams_save'), {
         exam_id: this.exam.id,
         passing_score: this.exam.passing_score,
         job_id: this.job_id,
@@ -27375,7 +27376,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     (0,axios_retry__WEBPACK_IMPORTED_MODULE_5__["default"])(axios, {
       retries: 3
     });
-    axios.get('/api/applicant/exam/check').then(function (response) {
+    axios.get(route('exams_check')).then(function (response) {
       _this3.hasTakenExam = response.data > 0 ? true : false; //alert(this.hasTakenExam);
     })["catch"](function (error) {
       if (error.response.status == '500') {
@@ -27436,7 +27437,7 @@ __webpack_require__.r(__webpack_exports__);
     (0,axios_retry__WEBPACK_IMPORTED_MODULE_2__["default"])(axios, {
       retries: 3
     });
-    axios.get('/api/vaccancies/').then(function (response) {
+    axios.get(route('vaccancies')).then(function (response) {
       //console.log(response.data[1]);
       //this.vacancies = {...response.data[1]};
       //console.log(this.vacancies);
@@ -27477,7 +27478,7 @@ __webpack_require__.r(__webpack_exports__);
       (0,axios_retry__WEBPACK_IMPORTED_MODULE_2__["default"])(axios, {
         retries: 3
       });
-      axios.post('/api/availableexams', {
+      axios.post(route('available_exams'), {
         job_id: this.selectedJobID
       }).then(function (response) {
         _this2.loading = false;
@@ -36009,7 +36010,7 @@ var _hoisted_4 = /*#__PURE__*/_withScopeId(function () {
 var _hoisted_5 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "text-center"
-  }, " HR Employment Screening ", -1
+  }, " HR Employment Screening Log In ", -1
   /* HOISTED */
   );
 });

@@ -167,7 +167,7 @@
                 this.resultsLoading=true;
                 this.results=[];
                 axiosRetry(axios, { retries: 3 });
-                axios.get('/admin/api/score/all')
+                axios.get(route('admin.scores'))
                 .then(response => {
                     this.results=response.data;
                     this.resultsLoading=false;
@@ -184,7 +184,7 @@
                 this.resultsLoading=true;
                 this.results=[];
                 axiosRetry(axios, { retries: 3 });
-                axios.post('/admin/api/score/filter',{
+                axios.post(route('admin.scores_filter'),{
                     passed: this.passed,
                     failed: this.failed,
                     needs_check: this.needsCheck,
@@ -208,7 +208,7 @@
                 this.resultsLoading=true;
                 this.loadingModal=true;
                 axiosRetry(axios, { retries: 3 });
-                axios.post('/admin/api/score/statusupdate',{
+                axios.post(route('admin.scores_status'),{
                     score_id:params.score_id,
                     status: params.status
                 })
@@ -228,7 +228,7 @@
                 this.resultsLoading=true;
                 axiosRetry(axios, { retries: 3 });
                 
-                axios.post('/admin/api/score/scoreupdate',{
+                axios.post(route('admin.scores_update'),{
                     score_id:params.score_id,
                     score: params.score
                 })

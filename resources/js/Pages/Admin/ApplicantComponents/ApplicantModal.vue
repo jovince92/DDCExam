@@ -221,7 +221,7 @@
                 this.loadingProvs=true;
                 this.loadingCities=true;
                 axiosRetry(axios, { retries: 3 });
-                axios.post('/api/provinces',{
+                axios.post(route('provinces'),{
                     region_id:id.target.value
                 })
                 .then(response => {
@@ -229,7 +229,7 @@
                     this.province=response.data[0].provCode;
                     this.loadingProvs=false;
                     axiosRetry(axios, { retries: 3 });
-                    axios.post('/api/cities',{
+                    axios.post(route('cities'),{
                         province_id:response.data[0].provCode
                     })
                     .then(response_ => {
@@ -261,7 +261,7 @@
             getCities(id){
                 this.loadingCities=true;
                 axiosRetry(axios, { retries: 3 });
-                axios.post('/api/cities',{
+                axios.post(route('cities'),{
                     province_id:id.target.value
                 })
                 .then(response => {
@@ -284,7 +284,7 @@
                     }
                 );
                 axiosRetry(axios, { retries: 3 });
-                axios.post('/admin/api/applicant/update',{
+                axios.post(route('admin.applicants_update'),{
 
                     applicant_id: this.applicant.applicant.id,
 

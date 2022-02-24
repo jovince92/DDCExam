@@ -643,7 +643,7 @@ export default defineComponent({
             this.c4
         ];
         axiosRetry(axios, { retries: 3 });
-        axios.post('/admin/api/exam/update',{
+        axios.post(route('admin.update_exam'),{
             exam_id:this.currentExam.id,
             name: this.examName,
             score: this.examScore(),

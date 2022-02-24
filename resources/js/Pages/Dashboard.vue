@@ -18,7 +18,7 @@ import Welcome from "@/Jetstream/Welcome.vue"
 export default defineComponent({
   components: {
     AppLayout,
-    Welcome
+    Welcome 
   }
 });
 </script>

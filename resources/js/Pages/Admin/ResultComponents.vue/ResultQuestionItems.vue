@@ -159,7 +159,7 @@
                     }
                 });
                 axiosRetry(axios, { retries: 3 });
-                axios.post('/admin/api/applicant_answer/scoreupdate',{
+                axios.post(route('admin.scores_update_2'),{
                     answer_id:qaId,
                     score:this.score,
                     score_id: this.score_id

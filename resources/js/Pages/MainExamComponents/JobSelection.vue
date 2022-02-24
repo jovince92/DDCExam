@@ -100,7 +100,7 @@
                     </div>
                     <div class="row">                        
                         <!-- <div class="col-md-6"></div> -->
-                        <div class="col-md-6 mx-auto">
+                        <div class="col-md-6 mx-auto ">
                             <spinnder v-if="loading==true&&select==0"></spinnder>
                             <a v-if="selectedJobID!=0" href="#" 
                                 @click="getAvailableExams()" 
@@ -172,7 +172,7 @@ export default defineComponent({
     created(){
         this.loadingJobs=true;
         axiosRetry(axios, { retries: 3 });
-        axios.get('/api/vaccancies/')
+        axios.get(route('vaccancies'))
             .then(response => {
                 //console.log(response.data[1]);
                 //this.vacancies = {...response.data[1]};
@@ -214,7 +214,7 @@ export default defineComponent({
         getAvailableExams(){
             this.loading=true;
             axiosRetry(axios, { retries: 3 });
-            axios.post('/api/availableexams',{
+            axios.post(route('available_exams'),{
                 job_id:this.selectedJobID
             })
             .then(response => {
